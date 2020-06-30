@@ -1,0 +1,176 @@
+@font-face {
+    font-family: HKGrotesk;
+    src: url(../assets/hk-grotesk/HKGrotesk-Regular.otf);
+}
+
+body {
+    margin: 0;
+    display: block;
+}
+
+#navbar {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .15rem;
+    padding-bottom: .15rem;
+    margin-right: 0;
+    font-size: 1.5rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.container {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1040px;
+    box-sizing: border-box;
+}
+
+.collapse {
+    display: flex!important;
+    flex-basis: auto;
+    flex-grow: 1;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-box-direction: normal;
+}
+
+.navbar-item {
+    color: #506690;
+    padding: 8px 24px;
+    line-height: 1.6;
+    font-weight: 400;
+    font-size: 1.0625rem;
+    font-family: HKGrotesk;
+}
+
+.navbar-item:hover {
+    color: #335eea;
+    text-decoration: none;
+}
+
+.btn {
+    padding: 9px 16px;
+    font-size: 17px;
+    line-height: 1.6;
+    font-weight: 500;
+    box-shadow: none;
+    margin-left: auto;
+    vertical-align: middle;
+    border-radius: 0.375rem;
+    background-color: #335eea;
+    color: #fff;
+    font-family: HKGrotesk;
+    display: inline-block;
+    transform: translateY(0px);
+    transition: all 0.25s;
+}
+
+.btn:hover {
+    box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, .15);
+    background-color: #2652e4;
+    transform: translateY(-3px);
+    transition: transform 0.25s;
+}
+
+.btn-grey {
+    padding: 13px 20px;
+    font-size: 17px;
+    line-height: 1.6;
+    font-weight: 500;
+    box-shadow: none;
+    margin-left: auto;
+    vertical-align: middle;
+    border-radius: 0.375rem;
+    background-color: rgba(51, 94, 234, .1);
+    color: #335eea;
+    font-family: HKGrotesk;
+    display: inline-block;
+    transform: translateY(0px);
+    transition: all 0.25s;
+}
+
+.btn-grey:hover {
+    box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, .15);
+    background-color: rgba(51, 94, 234, 0.199);
+    transform: translateY(-3px);
+    transition: transform 0.25s;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.dropdown-item {
+    width: auto;
+    min-width: 100%;
+    padding: 0 1.75rem;
+    margin-left: -1.75rem;
+    margin-right: -1.75rem;
+    margin-top: 7.2px;
+    clear: both;
+    font-weight: 400;
+    color: #506690;
+    text-align: initial;
+    white-space: nowrap;
+    display: block;
+    font-size: 15px;
+}
+
+.dropdown-item:hover {
+    color: #335eea;
+}
+
+.dropdown-header {
+    display: block;
+    margin: 0;
+    color: #335eea;
+    white-space: nowrap;
+    padding-top: 0;
+    font-size: .75rem;
+    font-weight: 600;
+    line-height: 1.55;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.mb-5 {
+    margin-bottom: 1.5rem!important;
+}
