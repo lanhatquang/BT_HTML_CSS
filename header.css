@@ -138,24 +138,20 @@ li {
     text-align: -webkit-match-parent;
 }
 
-.dropdown-item {
-    width: auto;
-    min-width: 100%;
-    padding: 0 1.75rem;
-    margin-left: -1.75rem;
-    margin-right: -1.75rem;
-    margin-top: 7.2px;
-    clear: both;
-    font-weight: 400;
-    color: #506690;
-    text-align: initial;
-    white-space: nowrap;
-    display: block;
-    font-size: 15px;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.dropdown-item:hover {
-    color: #335eea;
+.dropdown-item {
+    display: none;
+    position: absolute;
+    border: 15px;
+    box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.062);
+}
+
+.dropdown:hover .dropdown-item {
+    display: block;
 }
 
 .dropdown-header {

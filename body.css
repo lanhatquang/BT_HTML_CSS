@@ -60,6 +60,25 @@
 
 .content-center {
     justify-content: center;
+    text-align: center;
+}
+
+.text-center {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 31px;
+    font-weight: 100;
+    color: #161C2D;
+    font-family: 'Roboto', sans-serif;
+}
+
+.text-center-p {
+    color: #869AB8;
+    margin-bottom: 64px;
+    margin-top: 0;
+    font-size: 19px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
 }
 
 .display-3 {
