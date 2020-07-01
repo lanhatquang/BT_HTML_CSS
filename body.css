@@ -54,6 +54,14 @@
     width: 41.67%;
 }
 
+.col-8 {
+    width: 66.66%;
+}
+
+.content-center {
+    justify-content: center;
+}
+
 .display-3 {
     color: #161C2D;
     text-align: left;
@@ -232,7 +240,8 @@ label {
 .img-trans {
     border-radius: 0.625rem;
     box-shadow: 25px 60px 125px -25px rgba(80, 102, 144, .1), 16px 40px 75px -40px rgba(0, 0, 0, .2);
-    transform: skew(175deg, 175deg);
+    transform: rotateY(-5deg) rotateZ(3deg);
+    transform-style: preserve-3d;
 }
 
 @media (max-width: 768px) {
