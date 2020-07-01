@@ -146,12 +146,24 @@ li {
 .dropdown-item {
     display: none;
     position: absolute;
+    box-sizing: border-box;
     border: 15px;
-    box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.062);
+    z-index: 1000;
+    box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, .15);
+    min-width: 42rem;
+    float: none;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, 5px);
 }
 
 .dropdown:hover .dropdown-item {
     display: block;
+}
+
+.dropdown-toggle {
+    position: relative;
+    width: 100%;
 }
 
 .dropdown-header {
