@@ -52,19 +52,24 @@ body {
 
 @media (min-width: 576px) {
     .container {
-        max-width: 540px;
+        max-width: 560px;
     }
 }
 
 @media (min-width: 768px) {
     .container {
-        max-width: 720px;
+        max-width: 740px;
     }
 }
 
 @media (min-width: 992px) {
     .container {
         max-width: 960px;
+    }
+    .col-lg-6 {
+        -webkit-box-flex: 0;
+        flex: 0 0 50%;
+        max-width: 50%;
     }
 }
 
@@ -77,6 +82,33 @@ body {
     position: relative;
     -webkit-box-flex: 1;
     -webkit-box-direction: normal;
+}
+
+.navbar-toggler {
+    margin-left: auto;
+    color: #506690;
+    border-color: transparent;
+    padding: .25rem .75rem;
+    font-size: 1.1875rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .375rem;
+    display: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='%23506690' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    background-size: 100% 100%;
+}
+
+.navbar-toggler:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
 }
 
 .navbar-item {
@@ -219,14 +251,6 @@ ul {
 .no-gutters>[class*=col-] {
     padding-right: 0;
     padding-left: 0;
-}
-
-@media (min-width: 992px) {
-    .col-lg-6 {
-        -webkit-box-flex: 0;
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
 }
 
 .no-gutters>.col-lg-6 {
@@ -544,6 +568,10 @@ h6 {
     margin-bottom: 0!important;
 }
 
+.mb-2 {
+    margin-bottom: 8px;
+}
+
 h4 {
     line-height: 1.45;
     font-size: 19px;
@@ -579,5 +607,8 @@ p {
     .collapse {
         display: none;
         opacity: 0;
+    }
+    .navbar-toggler {
+        display: block;
     }
 }

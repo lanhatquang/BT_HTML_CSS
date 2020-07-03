@@ -13,6 +13,9 @@
     <nav id="navbar">
         <div class="container">
             <a class="navbar-brand"><img src="./assets/brand.svg" alt="brand"></a>
+            <a class="navbar-toggler">
+                <span class="navbar-toggler-icon"></span>
+            </a>
             <div class="collapse">
                 <ul class="navbar-nav">
                     <li class="dropdown">
@@ -242,7 +245,7 @@
         </div>
     </nav>
     <!-- Body -->
-    <section class="container pt-md-11">
+    <section class="container pt-md-12">
         <div class="row">
             <div class="col-6">
                 <h1 class="display-3">Welcome to <span style="color: #335EEA;">Landkit</span>.<br>Develop anything.</h1>
@@ -309,53 +312,57 @@
             </div>
         </div>
     </section>
-    <section class="container pt-md-11">
-        <div class="row" style="margin-bottom: 96px;">
-            <div class="col-5">
-                <div class="card">
-                    <img src="./assets/photo-2.jpg" style="max-width: 100%;border-top-left-radius: 0.375rem;border-top-right-radius: 0.375rem;">
-
-                    <div class="card-body">
-                        <form>
-                            <div class="form-label-item">
-                                <input type="text" class="form-control" id="cardName">
-                                <label for="cardName">Name</label>
-                            </div>
-                            <div class="form-label-item">
-                                <input type="text" class="form-control" id="cardName">
-                                <label for="cardEmail" style="color: #869ab8;">Email</label>
-                            </div>
-                            <div class="form-label-item">
-                                <input type="text" class="form-control" id="cardName">
-                                <label for="cardPassword" style="color: #869ab8;">Password</label>
-                            </div>
-                            <div class="mt-6">
-                                <button class="btn-success" type="submit">
+    <section style="background-image: linear-gradient(to bottom,#f9fbfd 0,#fff 100%);">
+        <div class="container pt-md-11">
+            <div class="row" style="margin-bottom: 96px;">
+                <div class="col-5">
+                    <div class="card">
+                        <img src="./assets/photo-2.jpg" style="max-width: 100%;border-top-left-radius: 0.375rem;border-top-right-radius: 0.375rem;">
+                        <div style="position: absolute;z-index: 1000;display: block;width: 100%; overflow: hidden;">
+                            <svg style="color: black; transform: translate(-28%,-10px);left: 50%;z-index: 1000;" height="20px" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"></path></svg>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-label-item">
+                                    <input type="text" id="cardName">
+                                    <label for="cardName">Name</label>
+                                </div>
+                                <div class="form-label-item">
+                                    <input type="text" id="cardName">
+                                    <label for="cardEmail" style="color: #869ab8;">Email</label>
+                                </div>
+                                <div class="form-label-item">
+                                    <input type="text" id="cardName">
+                                    <label for="cardPassword" style="color: #869ab8;">Password</label>
+                                </div>
+                                <div class="mt-6">
+                                    <button class="btn-success" type="submit">
                                     Download a sample
                                 </button>
-                            </div>
-                        </form>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-6" style="margin-left: auto;">
-                <h2 class="display-1">
-                    The most useful resource
-                    <br>
-                    <span style="color: #42ba96!important;">ever created for </span>
-                </h2>
-                <p class="display-7" style="font-size: 19px;margin-bottom: 32px; line-height: 1.5;">Using Landkit to build your site means never worrying about designing another page or cross browser compatibility. Our ever-growing library of components and pre-designed layouts will make your life easier.</p>
-                <div class="row">
-                    <div class="col-6">
-                        <div>
-                            <i class="fe"></i>
-                            <p class="text-success">Lifetime updates</p>
+                <div class="col-6" style="margin-left: auto;">
+                    <h2 class="display-1">
+                        The most useful resource
+                        <br>
+                        <span style="color: #42ba96!important;">ever created for </span>
+                    </h2>
+                    <p class="display-7" style="font-size: 19px;margin-bottom: 32px; line-height: 1.5;">Using Landkit to build your site means never worrying about designing another page or cross browser compatibility. Our ever-growing library of components and pre-designed layouts will make your life easier.</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <div>
+                                <i class="fe"></i>
+                                <p class="text-success">Lifetime updates</p>
+                            </div>
+                            <p class="text-success text-mg">Tons of assets</p>
                         </div>
-                        <p class="text-success" style="margin-bottom: 0px;">Tons of assets</p>
-                    </div>
-                    <div class="col-6">
-                        <p class="text-success">Tech support</p>
-                        <p class="text-success" style="margin-bottom: 0px;">Integration ready</p>
+                        <div class="col-6">
+                            <p class="text-success">Tech support</p>
+                            <p class="text-success" style="margin-bottom: 0px;">Integration ready</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -394,7 +401,7 @@
                 </div>
             </div>
             <div class="col-6" style="perspective: 200px;">
-                <img class="img-trans" style="width: 122%;" src="./assets/dashkit.jpg">
+                <img class="img-trans" src="./assets/dashkit.jpg">
             </div>
         </div>
     </section>
@@ -414,10 +421,10 @@
                 <div class="row">
                     <div class="col-6" style="padding: 0;">
                         <div class="mySlides fade">
-                            <img src="./assets/photo-1.jpg" style="width:100%;border-bottom-left-radius: 5px;border-top-left-radius: 5px;">
+                            <img src="./assets/photo-1.jpg" class="img-slide">
                         </div>
                         <div class="mySlides fade">
-                            <img src="./assets/photo-26.jpg" style="width:100%;border-bottom-left-radius: 5px;border-top-left-radius: 5px;">
+                            <img src="./assets/photo-26.jpg" class="img-slide">
                         </div>
                     </div>
                     <div class="col-6" style="padding: 0;">
@@ -444,196 +451,304 @@
             <button class="next" onclick="plusSlides(1)">&#10095;</button>
         </div>
     </section>
-    <section class="container pt-md-13">
-        <div class="row">
-            <div class="col-6">
-                <h2 class="display-1">
-                    Stay focused on your business.
-                    <br>
-                    <span style="color: #335EEA;">Let us handle the design</span>.
-                </h2>
-                <p class="display-7" style="margin-top: 0; font-size: 19px;margin-bottom: 32px;">You have a business to run. Stop worring about cross-browser bugs, designing new pages, keeping your components up to date. Let us do that for you.</p>
-                <div class="d-flex">
-
+    <section class="bg-gray-200">
+        <div class="container pt-md-13">
+            <div class="row">
+                <div class="col-6">
+                    <h2 class="display-1">
+                        Stay focused on your business.
+                        <br>
+                        <span style="color: #335EEA;">Let us handle the design</span>.
+                    </h2>
+                    <p class="display-7" style="margin-top: 0; font-size: 19px;margin-bottom: 32px;">You have a business to run. Stop worring about cross-browser bugs, designing new pages, keeping your components up to date. Let us do that for you.</p>
+                    <div class="d-flex">
+                        <div class="pr-5">
+                            <h3 class="mb-0">
+                                <span class="aos-init aos-animate counted">100</span>%
+                            </h3>
+                            <p class="text-gray-700 mb-0">
+                                Satisfaction
+                            </p>
+                        </div>
+                        <div class="border-left border-gray-300"></div>
+                        <div class="px-5">
+                            <h3 class="mb-0">
+                                <span class="aos-init aos-animate counted">24</span>/
+                                <span class="aos-init aos-animate counted">7</span>
+                            </h3>
+                            <p class="text-gray-700 mb-0">
+                                Support
+                            </p>
+                        </div>
+                        <div class="border-left border-gray-300"></div>
+                        <div class="pl-5">
+                            <h3 class="mb-0">
+                                <span class="aos-init aos-animate counted">100</span>k+
+                            </h3>
+                            <p class="text-gray-700 mb-0">
+                                Sales
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="d-flex">
-                    <div class="pr-5">
-                        <h3 class="mb-0">
-                            <span class="aos-init aos-animate counted">100</span>%
-                        </h3>
-                        <p class="text-gray-700 mb-0">
-                            Satisfaction
-                        </p>
-                    </div>
-                    <div class="border-left border-gray-300"></div>
-                    <div class="px-5">
-                        <h3 class="mb-0">
-                            <span class="aos-init aos-animate counted">24</span>/
-                            <span class="aos-init aos-animate counted">7</span>
-                        </h3>
-                        <p class="text-gray-700 mb-0">
-                            Support
-                        </p>
-                    </div>
-                    <div class="border-left border-gray-300"></div>
-                    <div class="pl-5">
-                        <h3 class="mb-0">
-                            <span class="aos-init aos-animate counted">100</span>k+
-                        </h3>
-                        <p class="text-gray-700 mb-0">
-                            Sales
-                        </p>
-                    </div>
+                <div class="col-6">
+                    <img src="./assets/illustration-8.png" style="width: 100%;">
                 </div>
-            </div>
-            <div class="col-6">
-                <img src="./assets/illustration-8.png" style="width: 100%;">
             </div>
         </div>
     </section>
-    <section class="container pt-md-5" style="display: block;">
-        <div class="row content-center">
-            <div class="col-8">
-                <h2 class="text-center">
-                    Fair, simple pricing for all.
-                </h2>
-                <p class="text-center-d">
-                    All types of businesses need access to development resources, so we give you the option to decide how much you need to use.
-                </p>
-                <form class="d-flex justify-content-center">
-                    <span class="text-muted">Annual</span>
-                    <label class="switch">
+    <section class="bg-gray-200">
+        <div class="container pt-md-5" style="display: block;">
+            <div class="row content-center">
+                <div class="col-8">
+                    <h2 class="text-center">
+                        Fair, simple pricing for all.
+                    </h2>
+                    <p class="text-center-d">
+                        All types of businesses need access to development resources, so we give you the option to decide how much you need to use.
+                    </p>
+                    <form class="d-flex justify-content-center">
+                        <span class="text-muted">Annual</span>
+                        <label class="switch">
                         <input type="checkbox">
                         <span class="slider round"></span>
                     </label>
-                    <span class="text-muted">Monthly</span>
-                </form>
+                        <span class="text-muted">Monthly</span>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6" style="padding: 0; z-index: 1;">
+                            <div class="card-btn">
+                                <div class="card-body">
+                                    <div class="row justify-content-center" style="margin-bottom: 0;">
+                                        <div class="col-12" style="padding: 0;">
+                                            <div class="text-center mb-5" style="text-align: center; overflow: hidden;">
+                                                <span class="badge badge-pill badge-primary-soft" style="display: inline;">
+                                          <span class="h6 font-weight-bold text-uppercase" style="margin: 0; display: inline; color: #335EEA;">Standard</span>
+                                                </span>
+                                            </div>
+                                            <div class="d-flex justify-content-center" style="margin-bottom: 0;">
+                                                <span class="h2 mb-0 mt-2" style="font-size: 31px; color: #161C2D;">$</span>
+                                                <span class="display-2 mb-0" style="font-size: 61px; color: #161C2D;">29</span>
+                                                <span class="h2 align-self-end mb-1" style="color: #161C2D; font-size: 31px; margin-bottom: 4px;">/mo</span>
+                                            </div>
+                                            <p class="text-center text-muted mb-md-8">
+                                                per seat
+                                            </p>
+                                            <div class="d-flex">
+                                                <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
+                                                    <i class="fe fe-check"></i>
+                                                </div>
+                                                <p>Rich, responsive landing pages</p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
+                                                    <i class="fe fe-check"></i>
+                                                </div>
+                                                <p>100+ styled components</p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
+                                                    <i class="fe fe-check"></i>
+                                                </div>
+                                                <p>Flexible, simple license</p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
+                                                    <i class="fe fe-check"></i>
+                                                </div>
+                                                <p>Speedy build tooling</p>
+                                            </div>
+                                            <div class="d-flex" style="margin-bottom: 0;">
+                                                <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
+                                                    <i class="fe fe-check"></i>
+                                                </div>
+                                                <p>6 months free support included</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="btn-bottom">Get it now</a>
+                            </div>
+                        </div>
+                        <div class="col-6 card-format">
+                            <div class="card-btn">
+                                <div class="card-body">
+                                    <div class="row justify-content-center" style="margin-bottom: 0;">
+                                        <div class="col-12" style="padding: 0;">
+                                            <div class="text-center" style="text-align: center; overflow: hidden; margin-bottom: 96px;">
+                                                <span class="badge badge-pill badge-primary-soft" style="display: inline;">
+                                          <span class="h6 font-weight-bold text-uppercase" style="margin: 0; display: inline; color: #335EEA;">Enterprise</span>
+                                                </span>
+                                            </div>
+                                            <p class="text-center" style="font-size: 21px; color: #869AB8; margin-bottom: 80px;">
+                                                We offer variable pricing with discounts for larger organizations. Get in touch with us and we’ll figure out something that works for everyone.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="btn-bottom" style="background-color: #D9E2EF; color: #506690;">Contact us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-6" style="padding: 0; z-index: 1;">
-                        <div class="card-btn">
-                            <div class="card-body">
-                                <div class="row justify-content-center">
-                                    <div class="col-12" style="padding: 0;">
-                                        <div class="text-center mb-5" style="text-align: center; overflow: hidden;">
-                                            <span class="badge badge-pill badge-primary-soft" style="display: inline;">
-                                          <span class="h6 font-weight-bold text-uppercase" style="margin: 0; display: inline; color: #335EEA;">Standard</span>
-                                            </span>
-                                        </div>
-                                        <div class="d-flex justify-content-center" style="margin-bottom: 0;">
-                                            <span class="h2 mb-0 mt-2" style="font-size: 31px; color: #161C2D;">$</span>
-                                            <span class="display-2 mb-0" style="font-size: 61px; color: #161C2D;">29</span>
-                                            <span class="h2 align-self-end mb-1" style="color: #161C2D; font-size: 31px; margin-bottom: 4px;">/mo</span>
-                                        </div>
-                                        <p class="text-center text-muted mb-6 mb-md-8">
-                                            per seat
-                                        </p>
-                                        <div class="d-flex">
-                                            <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                                                <i class="fe fe-check"></i>
-                                            </div>
-                                            <p>Rich, responsive landing pages</p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                                                <i class="fe fe-check"></i>
-                                            </div>
-                                            <p>100+ styled components</p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                                                <i class="fe fe-check"></i>
-                                            </div>
-                                            <p>Flexible, simple license</p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                                                <i class="fe fe-check"></i>
-                                            </div>
-                                            <p>Speedy build tooling</p>
-                                        </div>
-                                        <div class="d-flex" style="margin-bottom: 0;">
-                                            <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                                                <i class="fe fe-check"></i>
-                                            </div>
-                                            <p>6 months free support included</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="btn-bottom">Get it now</a>
+    </section>
+    <section class="bg-dark">
+        <div class="container pt-md-10">
+            <div class="row" style="align-items: initial;">
+                <div class="col-6">
+                    <div class="d-flex">
+                        <div class="badge badge-lg badge-rounded-circle badge-success">
+                            <span>?</span>
+                        </div>
+                        <div class="ml-5">
+                            <h4 class="text-white text-about">
+                                Can I use Landkit for my clients?
+                            </h4>
+                            <p class="text-muted mb-md-8">
+                                Absolutely. The Bootstrap Themes license allows you to build a websites for personal use or for a client.
+                            </p>
                         </div>
                     </div>
-                    <div class="col-6" style="padding: 0; transform: translateX(-10px); z-index: 0;">
-                        <div class="card-btn">
-                            <div class="card-body">
-                                <div class="row justify-content-center">
-                                    <div class="col-12" style="padding: 0;">
-                                        <div class="text-center" style="text-align: center; overflow: hidden; margin-bottom: 96px;">
-                                            <span class="badge badge-pill badge-primary-soft" style="display: inline;">
-                                          <span class="h6 font-weight-bold text-uppercase" style="margin: 0; display: inline; color: #335EEA;">Enterprise</span>
-                                            </span>
-                                        </div>
-                                        <p class="text-center" style="font-size: 21px; color: #869AB8; margin-bottom: 80px;">
-                                            We offer variable pricing with discounts for larger organizations. Get in touch with us and we’ll figure out something that works for everyone.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="btn-bottom" style="background-color: #D9E2EF; color: #506690;">Contact us</a>
+                    <div class="d-flex">
+                        <div class="badge badge-lg badge-rounded-circle badge-success">
+                            <span>?</span>
+                        </div>
+                        <div class="ml-5">
+                            <h4 class="text-white text-about">
+                                Do I get free updates?
+                            </h4>
+                            <p class="text-muted mb-md-8">
+                                Yes. We update all of our themes with each Bootstrap update, plus are constantly adding new components, pages, and features to our themes.
+                            </p>
                         </div>
                     </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex">
+                        <div class="badge badge-lg badge-rounded-circle badge-success">
+                            <span>?</span>
+                        </div>
+                        <div class="ml-5">
+                            <h4 class="text-white text-about">
+                                Is there a money back guarantee?
+                            </h4>
+                            <p class="text-muted mb-md-8">
+                                Yup! Bootstrap Themes come with a satisfaction guarantee. Submit a return and get your money back.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="badge badge-lg badge-rounded-circle badge-success">
+                            <span>?</span>
+                        </div>
+                        <div class="ml-5">
+                            <h4 class="text-white text-about">
+                                Does it work with Rails? React? Laravel?
+                            </h4>
+                            <p class="text-muted mb-md-8">
+                                Yes. Landkit has basic CSS/JS files you can include. If you want to enable deeper customization, you can integrate it into your assets pipeline or build processes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-dark">
+        <div class="container py-md-11">
+            <div class="row content-center">
+                <div class="col-8 text-center" style="margin-bottom: 0;">
+                    <span class="badge-pill badge-gray-700-soft">
+                      <span class="h6 font-weight-bold text-uppercase">Get started</span>
+                    </span>
+                    <h1 class="display-8 text-white">
+                        Get Landkit and save your time.
+                    </h1>
+                    <p class="font-size-lg text-muted mb-md-8">
+                        Stop wasting time trying to do it the "right way" and build a site from scratch. Landkit is faster, easier, and you still have complete control.
+                    </p>
+                    <a class="btn btn-success lift">
+                      Buy it now <i class="fa fa-arrow-right" style="margin-left: 0.75rem;font-size: 15px;"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
     <!-- Footer -->
-    <section class="container" style="padding: 96px 0;">
-        <div class="row">
-            <div class="col-3">
-                <p>asasa</p>
-            </div>
-            <div class="col-2" style="margin-bottom: auto;">
-                <h6 class="footer-header">
-                    Products
-                </h6>
-                <a class="footer-item">Page Builder</a>
-                <a class="footer-item">UI Kit</a>
-                <a class="footer-item">Styleguide</a>
-                <a class="footer-item">Documentation</a>
-                <a class="footer-item" style="margin-bottom: 0;">Chanelog</a>
-            </div>
-            <div class="col-2" style="margin-bottom: auto;">
-                <h6 class="footer-header">
-                    Services
-                </h6>
-                <a class="footer-item">Documentation</a>
-                <a class="footer-item">Changelog</a>
-                <a class="footer-item">Pagebuilder</a>
-                <a class="footer-item" style="margin-bottom: 0;">UI Kit</a>
-            </div>
-            <div class="col-2" style="margin-bottom: auto;">
-                <h6 class="footer-header">
-                    CONNECT
-                </h6>
-                <a class="footer-item">Page Builder</a>
-                <a class="footer-item">UI Kit</a>
-                <a class="footer-item">Styleguide</a>
-                <a class="footer-item">Documentation</a>
-                <a class="footer-item">Changelog</a>
-                <a class="footer-item">Documentation</a>
-                <a class="footer-item" style="margin-bottom: 0;">Changelog</a>
-            </div>
-            <div class="col-2" style="margin-bottom: auto;">
-                <h6 class="footer-header">
-                    LEGAL
-                </h6>
-                <a class="footer-item">Documentation</a>
-                <a class="footer-item">Changelog</a>
-                <a class="footer-item" style="margin-bottom: 0;">BPagebuilder</a>
+    <section class="bg-gray-200">
+        <div class="container" style="padding: 96px 0;">
+            <div class="row">
+                <div class="col-3" style="margin-bottom: auto;">
+                    <img src="./assets/brand.svg" style="margin-bottom: 8px;">
+                    <p class="text-gray-700 mb-2">A better way to build.</p>
+                    <ul class="footer-ma">
+                        <li class="list-inline-item list-social-item mr-3">
+                            <a class="text-decoration-none">
+                                <img src="./assets/instagram.svg">
+                            </a>
+                        </li>
+                        <li class="list-inline-item list-social-item mr-3">
+                            <a class="text-decoration-none">
+                                <img src="./assets/facebook.svg">
+                            </a>
+                        </li>
+                        <li class="list-inline-item list-social-item mr-3">
+                            <a class="text-decoration-none">
+                                <img src="./assets/twitter.svg">
+                            </a>
+                        </li>
+                        <li class="list-inline-item list-social-item">
+                            <a class="text-decoration-none">
+                                <img src="./assets/pinterest.svg" class="list-social-icon">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-2 footer-pad" style="margin-bottom: auto;">
+                    <h6 class="footer-header">
+                        Products
+                    </h6>
+                    <a class="footer-item">Page Builder</a>
+                    <a class="footer-item">UI Kit</a>
+                    <a class="footer-item">Styleguide</a>
+                    <a class="footer-item">Documentation</a>
+                    <a class="footer-item" style="margin-bottom: 0;">Chanelog</a>
+                </div>
+                <div class="col-2" style="margin-bottom: auto;">
+                    <h6 class="footer-header">
+                        Services
+                    </h6>
+                    <a class="footer-item">Documentation</a>
+                    <a class="footer-item">Changelog</a>
+                    <a class="footer-item">Pagebuilder</a>
+                    <a class="footer-item" style="margin-bottom: 0;">UI Kit</a>
+                </div>
+                <div class="col-2 footer-col" style="margin-bottom: auto;">
+                    <h6 class="footer-header">
+                        CONNECT
+                    </h6>
+                    <a class="footer-item">Page Builder</a>
+                    <a class="footer-item">UI Kit</a>
+                    <a class="footer-item">Styleguide</a>
+                    <a class="footer-item">Documentation</a>
+                    <a class="footer-item">Changelog</a>
+                    <a class="footer-item">Documentation</a>
+                    <a class="footer-item" style="margin-bottom: 0;">Changelog</a>
+                </div>
+                <div class="col-2" style="margin-bottom: auto;">
+                    <h6 class="footer-header">
+                        LEGAL
+                    </h6>
+                    <a class="footer-item">Documentation</a>
+                    <a class="footer-item">Changelog</a>
+                    <a class="footer-item" style="margin-bottom: 0;">BPagebuilder</a>
+                </div>
             </div>
         </div>
     </section>
