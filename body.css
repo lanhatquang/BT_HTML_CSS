@@ -172,7 +172,7 @@
 }
 
 .lift {
-    display: inline!important;
+    display: inline;
 }
 
 .display-3 {
@@ -315,6 +315,21 @@
     margin-bottom: 1rem;
 }
 
+input[type=password] {
+    width: 100%;
+    height: calc(1.6em + 1.625rem + 2px);
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.6;
+    padding: 13px 0px;
+    outline: none;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #f1f4f8;
+    display: block;
+}
+
 input[type=text] {
     width: 100%;
     height: calc(1.6em + 1.625rem + 2px);
@@ -330,20 +345,12 @@ input[type=text] {
     display: block;
 }
 
-input[type=text]:focus {
+input[type=password]:focus {
     border-bottom: 1px solid #335eea7a;
 }
 
-input[type=text]:focus+label {
-    transform: translate(0, -55px);
-    font-size: 12px;
-    transition: all 0.5s;
-}
-
-label {
-    color: #869ab8;
-    position: absolute;
-    transform: translate(0, -40px);
+input[type=text]:focus {
+    border-bottom: 1px solid #335eea7a;
 }
 
 .text-mg {

@@ -38,7 +38,7 @@
                                 <div class="col-12 col-lg-6">
                                     <div class="dropdown-body">
                                         <div class="row no-gutters">
-                                            <div class="col-6">
+                                            <div class="col-6 col-dr-6">
                                                 <h6 class="dropdown-header">Services</h6>
                                                 <a class="dropdown-item" style="margin-top: 0;">Coworking</a>
                                                 <a class="dropdown-item">Rental</a>
@@ -49,7 +49,7 @@
                                                 <a class="dropdown-item" style="margin-top: 0;">Desktop</a>
                                                 <a class="dropdown-item">Mobile</a>
                                             </div>
-                                            <div class="col-6" style="margin-bottom: auto;">
+                                            <div class="col-6 col-dr-6" style="margin-bottom: auto;">
                                                 <h6 class="dropdown-header">
                                                     Web
                                                 </h6>
@@ -73,7 +73,7 @@
                         <a class="navbar-item">Pages</a>
                         <div class="dropdown-menu dropdown-menu-lg">
                             <div class="row no-gutters">
-                                <div class="col-6">
+                                <div class="col-6 col-dr-6">
                                     <div class="row no-gutters">
                                         <div class="col-12 col-lg-6">
                                             <h6 class="dropdown-header">
@@ -86,7 +86,7 @@
                                             </h6>
                                             <a class="dropdown-item">About</a>
                                             <a class="dropdown-item">Pricing</a>
-                                            <a class="dropdown-item" style="margin-bottom: 0;">Terms</a>
+                                            <a class="dropdown-item mb-5">Terms</a>
                                         </div>
                                         <div class="col-12 col-lg-6" style="margin-bottom: auto;">
                                             <h6 class="dropdown-header">
@@ -102,7 +102,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6" style="margin-bottom: auto;">
+                                <div class="col-6 col-dr-6" style="margin-bottom: auto;">
                                     <div class="row no-gutters">
                                         <div class="col-12 col-lg-6" style="margin-bottom: auto;">
                                             <h6 class="dropdown-header">
@@ -111,7 +111,7 @@
                                             <a class="dropdown-item">Rich View</a>
                                             <a class="dropdown-item">Article</a>
                                             <a class="dropdown-item">Showcase</a>
-                                            <a class="dropdown-item mb-5 mb-lg-0">Search</a>
+                                            <a class="dropdown-item mb-5">Search</a>
                                         </div>
                                         <div class="col-12 col-lg-6" style="margin-bottom: auto;">
                                             <h6 class="dropdown-header">
@@ -135,12 +135,12 @@
                         <a class="navbar-item">Account</a>
                         <ul class="dropdown-menu" style="min-width: 14rem;">
                             <li class="dropdown-item dropright" style="margin-top: 0;">
-                                <a class="dropdown-link dropdown-toggle" data-toggle="dropdown">
+                                <a class="dropdown-toggle" onclick="showList(1)">
                                     Settings 
                                     <span class="h6 text-uppercase text-primary">(new)</span>
                                     <p style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
-                                <div class="dropdown-menu">
+                                <div id="dropdown-link-1" class="dropdown-menu">
                                     <a class="dropdown-item">General</a>
                                     <a class="dropdown-item">Security</a>
                                     <a class="dropdown-item">Notifications</a>
@@ -149,11 +149,11 @@
                                 </div>
                             </li>
                             <li class="dropdown-item dropright">
-                                <a class="dropdown-link dropdown-toggle" data-toggle="dropdown">
+                                <a class="dropdown-toggle" onclick="showList(2)">
                                     Sign In
                                     <p style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
-                                <div class="dropdown-menu">
+                                <div id="dropdown-link-2" class="dropdown-menu">
                                     <a class="dropdown-item">Side Cover</a>
                                     <a class="dropdown-item">Illustration</a>
                                     <a class="dropdown-item">Basic</a>
@@ -162,11 +162,11 @@
                                 </div>
                             </li>
                             <li class="dropdown-item dropright">
-                                <a class="dropdown-link dropdown-toggle" data-toggle="dropdown">
+                                <a class="dropdown-toggle" onclick="showList(3)">
                                     Sign Up
                                     <p style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
-                                <div class="dropdown-menu">
+                                <div id="dropdown-link-3" class="dropdown-menu">
                                     <a class="dropdown-item">Side Cover</a>
                                     <a class="dropdown-item">Illustration</a>
                                     <a class="dropdown-item">Basic</a>
@@ -175,22 +175,22 @@
                                 </div>
                             </li>
                             <li class="dropdown-item dropright">
-                                <a class="dropdown-link dropdown-toggle" data-toggle="dropdown">
+                                <a class="dropdown-toggle" onclick="showList(4)">
                                     Password Reset
                                     <p style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
-                                <div class="dropdown-menu">
+                                <div id="dropdown-link-4" class="dropdown-menu">
                                     <a class="dropdown-item">Side Cover</a>
                                     <a class="dropdown-item">Illustration</a>
                                     <a class="dropdown-item">Basic</a>
                                 </div>
                             </li>
                             <li class="dropdown-item dropright">
-                                <a class="dropdown-link dropdown-toggle" data-toggle="dropdown">
+                                <a class="dropdown-toggle" onclick="showList(5)">
                                     Error
                                     <p style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
-                                <div class="dropdown-menu">
+                                <div id="dropdown-link-5" class="dropdown-menu">
                                     <a class="dropdown-item">Side Cover</a>
                                     <a class="dropdown-item">Illustration</a>
                                     <a class="dropdown-item">Basic</a>
@@ -322,25 +322,23 @@
                             <svg style="color: black; transform: translate(-28%,-10px);left: 50%;z-index: 1000;" height="20px" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"></path></svg>
                         </div>
                         <div class="card-body">
-                            <form>
-                                <div class="form-label-item">
-                                    <input type="text" id="cardName">
-                                    <label for="cardName">Name</label>
-                                </div>
-                                <div class="form-label-item">
-                                    <input type="text" id="cardName">
-                                    <label for="cardEmail" style="color: #869ab8;">Email</label>
-                                </div>
-                                <div class="form-label-item">
-                                    <input type="text" id="cardName">
-                                    <label for="cardPassword" style="color: #869ab8;">Password</label>
-                                </div>
-                                <div class="mt-6">
-                                    <button class="btn-success" type="submit">
+                            <div class="form-label-item">
+                                <input type="text" id="cardName" placeholder="Name">
+                                <label id="labelName" for="cardName" style="color: #869ab8;font-size: 12px;"></label>
+                            </div>
+                            <div class="form-label-item">
+                                <input type="text" id="cardEmail" placeholder="Email">
+                                <label id="labelEmail" for="cardEmail" style="color: #869ab8;font-size: 12px;"></label>
+                            </div>
+                            <div class="form-label-item">
+                                <input type="password" id="cardPassword" placeholder="Password">
+                                <label id="labelPassword" for="cardPassword" style="color: #869ab8;font-size: 12px;"></label>
+                            </div>
+                            <div class="mt-6">
+                                <button class="btn-success" id="myBtn" onclick="checkSubmit()">
                                     Download a sample
                                 </button>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -777,6 +775,77 @@
         }
         slides[slideIndex - 1].style.display = "block";
         slidesText[slideIndex - 1].style.display = "block";
+    }
+
+    var namez = document.getElementById("cardName");
+    var labelName = document.getElementById("labelName");
+    var email = document.getElementById("cardEmail");
+    var labelEmail = document.getElementById("labelEmail");
+    var password = document.getElementById("cardPassword");
+    var labelPassword = document.getElementById("labelPassword");
+
+    namez.addEventListener("keyup", function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            document.getElementById("myBtn").click();
+        }
+    });
+    email.addEventListener("keyup", function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            document.getElementById("myBtn").click();
+        }
+    });
+    password.addEventListener("keyup", function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            document.getElementById("myBtn").click();
+        }
+    });
+
+    function checkSubmit() {
+        var check = 1;
+        if (namez.value == "") {
+            labelName.innerHTML = "Name is empty";
+            check = 0;
+        } else {
+            labelName.innerHTML = "";
+        }
+        if (email.value == "") {
+            labelEmail.innerHTML = "Email is empty";
+            check = 0;
+        } else if (email.value.length > 8) {
+            labelEmail.innerHTML = "Length email is long"
+            check = 0;
+        } else {
+            labelEmail.innerHTML = "";
+        }
+        if (password.value == "") {
+            labelPassword.innerHTML = "Email is empty";
+            check = 0;
+        } else if (password.value.length > 8) {
+            labelPassword.innerHTML = "Length password is long"
+            check = 0;
+        } else {
+            labelPassword.innerHTML = "";
+        }
+        if (check == 1) {
+            console.log("name: " + namez.value);
+            console.log("email: " + email.value);
+            console.log("password: " + password.value);
+        }
+    }
+    var checkShow = [0, 0, 0, 0, 0];
+
+    function showList(numberShow) {
+        if (checkShow[numberShow - 1] == 0) {
+            document.getElementById("dropdown-link-" + numberShow).style.display = "block";
+            checkShow[numberShow - 1] = 1;
+        } else {
+            document.getElementById("dropdown-link-" + numberShow).style.display = "none";
+            checkShow[numberShow - 1] = 0;
+        }
+
     }
 </script>
 
