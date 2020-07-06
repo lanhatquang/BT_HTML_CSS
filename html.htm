@@ -11,12 +11,13 @@
 
 <body>
     <nav id="navbar">
-        <div class="container">
-            <a class="navbar-brand"><img src="./assets/brand.svg" alt="brand"></a>
+        <div id="container" class="container">
+            <a class="navbar-brand" style="padding-left: 20px;"><img src="./assets/brand.svg" alt="brand"></a>
             <a class="navbar-toggler">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" onclick="showHeader(true)"></span>
             </a>
-            <div class="collapse">
+            <div id="showHeader" class="collapse">
+                <button class="btn-exit" onclick="showHeader(false)">x</button>
                 <ul class="navbar-nav">
                     <li class="dropdown">
                         <a class="navbar-item">Landings</a>
@@ -138,7 +139,7 @@
                                 <a class="dropdown-toggle" onclick="showList(1)">
                                     Settings 
                                     <span class="h6 text-uppercase text-primary">(new)</span>
-                                    <p style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
+                                    <p id="icon-1" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
                                 <div id="dropdown-link-1" class="dropdown-menu">
                                     <a class="dropdown-item">General</a>
@@ -151,7 +152,7 @@
                             <li class="dropdown-item dropright">
                                 <a class="dropdown-toggle" onclick="showList(2)">
                                     Sign In
-                                    <p style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
+                                    <p id="icon-2" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
                                 <div id="dropdown-link-2" class="dropdown-menu">
                                     <a class="dropdown-item">Side Cover</a>
@@ -164,7 +165,7 @@
                             <li class="dropdown-item dropright">
                                 <a class="dropdown-toggle" onclick="showList(3)">
                                     Sign Up
-                                    <p style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
+                                    <p id="icon-3" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
                                 <div id="dropdown-link-3" class="dropdown-menu">
                                     <a class="dropdown-item">Side Cover</a>
@@ -177,7 +178,7 @@
                             <li class="dropdown-item dropright">
                                 <a class="dropdown-toggle" onclick="showList(4)">
                                     Password Reset
-                                    <p style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
+                                    <p id="icon-4" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
                                 <div id="dropdown-link-4" class="dropdown-menu">
                                     <a class="dropdown-item">Side Cover</a>
@@ -188,7 +189,7 @@
                             <li class="dropdown-item dropright">
                                 <a class="dropdown-toggle" onclick="showList(5)">
                                     Error
-                                    <p style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
+                                    <p id="icon-5" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
                                 <div id="dropdown-link-5" class="dropdown-menu">
                                     <a class="dropdown-item">Side Cover</a>
@@ -839,13 +840,27 @@
 
     function showList(numberShow) {
         if (checkShow[numberShow - 1] == 0) {
-            document.getElementById("dropdown-link-" + numberShow).style.display = "block";
+            document.getElementById("dropdown-link-" + numberShow).classList.add("show");
+            document.getElementById("icon-" + numberShow).innerHTML = "&#10094;";
             checkShow[numberShow - 1] = 1;
         } else {
-            document.getElementById("dropdown-link-" + numberShow).style.display = "none";
+            document.getElementById("dropdown-link-" + numberShow).classList.remove("show");
+            document.getElementById("icon-" + numberShow).innerHTML = "&#10095;";
             checkShow[numberShow - 1] = 0;
         }
 
+    }
+
+    function showHeader(check) {
+        if (check) {
+            document.getElementById("showHeader").classList.add("show");
+            document.getElementById("showHeader").classList.add("collapseShow");
+            document.getElementById("container").classList.add("showList");
+        } else {
+            document.getElementById("showHeader").classList.remove("show");
+            document.getElementById("showHeader").classList.remove("collapseShow");
+            document.getElementById("container").classList.remove("showList");
+        }
     }
 </script>
 

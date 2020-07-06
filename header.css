@@ -6,6 +6,8 @@
 body {
     margin: 0;
     display: block;
+    width: 100%;
+    height: 100%;
 }
 
 *,
@@ -312,6 +314,10 @@ ul {
     position: relative;
 }
 
+.btn-exit {
+    display: none;
+}
+
 .dropdown-item {
     width: auto;
     min-width: 100%;
@@ -602,16 +608,24 @@ p {
     .collapse {
         display: block;
         position: absolute;
-        opacity: 1;
+        opacity: 0;
+        visibility: hidden;
         background-color: #fff;
         box-shadow: 0 .5rem 1.5rem rgba(22, 28, 45, .15)!important;
         border-radius: 5px;
         width: 100%;
         top: 0;
-        height: 500px;
+        left: 2.5vw;
+        height: 95vh;
+        width: 95vw;
         z-index: 100;
         overflow-x: hidden;
         overflow-y: scroll;
+    }
+    .collapseShow {
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.5s;
     }
     .navbar-toggler {
         display: block;
@@ -619,6 +633,7 @@ p {
     .navbar-nav {
         display: flex;
         flex-direction: column;
+        position: sticky;
     }
     .dropdown {
         display: block;
@@ -646,10 +661,10 @@ p {
         padding: 16px 0 16px 8px;
         display: none;
     }
-    .dropdown-menu.dropdown-menu-md {
+    .dropdown-menu .dropdown-menu-md {
         border-radius: 0;
     }
-    .btn {
+    .collapse .btn {
         border-radius: 0;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
@@ -660,6 +675,13 @@ p {
         display: block!important;
         transform: translateY(0px);
         transition: all 0.25s;
+        z-index: 1000!important;
+    }
+    .collapse .btn:hover {
+        box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, .15);
+        background-color: #2652e4;
+        transform: translateY(-3px);
+        transition: transform 0.25s;
         z-index: 1000!important;
     }
     .navbar-nav .dropdown-menu-xl .dropdown-body {
@@ -673,5 +695,27 @@ p {
     }
     .dropdown-menu-xl {
         min-width: 0!important;
+    }
+    .btn-exit {
+        display: block;
+        position: absolute!important;
+        top: 15px;
+        right: 20px;
+        color: #506690;
+        font-size: 20px;
+        z-index: 1000;
+        background-color: transparent;
+        border: none;
+        width: 45px;
+        height: 31px;
+        text-align: center;
+    }
+    .show {
+        display: block!important;
+    }
+    .showList {
+        width: 100vw;
+        margin: 0!important;
+        padding-left: 12vw;
     }
 }

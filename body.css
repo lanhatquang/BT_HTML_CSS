@@ -691,6 +691,9 @@ h3 {
 }
 
 @media (max-width: 992px) {
+    /* [class^="col-"]>img {
+        max-width: 100%;
+    } */
     .display-3 {
         font-size: 36px;
     }
