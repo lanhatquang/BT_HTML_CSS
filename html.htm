@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
 </head>
 
 <body>
@@ -328,7 +329,7 @@
                                 <label id="labelName" for="cardName" style="color: #869ab8;font-size: 12px;"></label>
                             </div>
                             <div class="form-label-item">
-                                <input type="text" id="cardEmail" placeholder="Email">
+                                <input type="email" id="cardEmail" placeholder="Email">
                                 <label id="labelEmail" for="cardEmail" style="color: #869ab8;font-size: 12px;"></label>
                             </div>
                             <div class="form-label-item">
@@ -473,6 +474,13 @@
             numItem += 2;
         }
         createClone();
+        $(document).ready(function() {
+            $(window).resize(function() {
+                currentPosition = parseInt(currentPosition / widthItem) * document.querySelector(".itemSlider").offsetWidth;
+                slider.style.transition = "0s";
+                slider.style.transform = "translateX(" + currentPosition + "px)";
+            });
+        });
 
         function nextSlider() {
             widthItem = document.querySelector(".itemSlider").offsetWidth;
@@ -503,7 +511,6 @@
             }
             //pre slider
             if (currentPosition == widthItem) {
-                console.log(currentPosition)
                 slider.style.transform = "translateX(" + currentPosition + "px)";
                 setTimeout(function() {
                     slider.style.transition = "0s";
@@ -514,6 +521,7 @@
                 slider.style.transition = "0.5s";
             }
         }
+        var myVar = setInterval(nextSlider(), 1000);
     </script>
     <section class="bg-gray-200">
         <div class="container pt-md-13">
@@ -904,16 +912,17 @@
     var checkShow = [0, 0, 0, 0, 0];
 
     function showList(numberShow) {
-        if (checkShow[numberShow - 1] == 0) {
-            document.getElementById("dropdown-link-" + numberShow).classList.add("show");
-            document.getElementById("icon-" + numberShow).innerHTML = "&#10094;";
-            checkShow[numberShow - 1] = 1;
-        } else {
-            document.getElementById("dropdown-link-" + numberShow).classList.remove("show");
-            document.getElementById("icon-" + numberShow).innerHTML = "&#10095;";
-            checkShow[numberShow - 1] = 0;
+        if ($(window).width() < 992) {
+            if (checkShow[numberShow - 1] == 0) {
+                document.getElementById("dropdown-link-" + numberShow).classList.add("show");
+                document.getElementById("icon-" + numberShow).innerHTML = "&#10094;";
+                checkShow[numberShow - 1] = 1;
+            } else {
+                document.getElementById("dropdown-link-" + numberShow).classList.remove("show");
+                document.getElementById("icon-" + numberShow).innerHTML = "&#10095;";
+                checkShow[numberShow - 1] = 0;
+            }
         }
-
     }
 
     function showHeader(check) {
@@ -925,6 +934,11 @@
             document.getElementById("showHeader").classList.remove("show");
             document.getElementById("showHeader").classList.remove("collapseShow");
             document.getElementById("container").classList.remove("showList");
+            for (let index = 0; index < checkShow.length; index++) {
+                document.getElementById("dropdown-link-" + (index + 1)).classList.remove("show");
+                document.getElementById("icon-" + (index + 1)).innerHTML = "&#10095;";
+                checkShow[index] = 0;
+            }
         }
     }
 </script>
