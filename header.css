@@ -212,7 +212,7 @@ ul {
     margin-left: auto;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .dropdown-menu-xl {
@@ -507,6 +507,9 @@ h6 {
     .navbar-nav .dropdown-menu-lg .dropdown-body,
     .navbar-nav .dropdown-menu-xl .dropdown-body {
         padding: 2.375rem 2.5rem;
+    }
+    .no-gutters .col-12 {
+        width: 50%;
     }
 }
 
