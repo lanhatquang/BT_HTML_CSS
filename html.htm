@@ -405,7 +405,7 @@
         </div>
     </section>
     <section class="container pt-md-5" style="display: block;">
-        <div class="row content-center">
+        <disliderv class="row content-center">
             <div class="col-8">
                 <h2 class="text-center">
                     Our customers are our biggest fans.
@@ -414,42 +414,107 @@
                     We dont' like to brag, but we don't mind letting our customers do it for us. Here are a few nice things folks have said about our themes over the years.
                 </p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-6" style="padding: 0;">
-                        <div class="mySlides fade">
-                            <img src="./assets/photo-1.jpg" class="img-slide">
-                        </div>
-                        <div class="mySlides fade">
-                            <img src="./assets/photo-26.jpg" class="img-slide">
-                        </div>
-                    </div>
-                    <div class="col-6" style="padding: 0;">
-                        <div class="mySlidesText fade">
-                            <div class="card-body">
-                                <img src="./assets/icon12.svg" style="height: 55px;margin-left: auto;margin-right: auto;display: block;margin-bottom: 40px;">
-                                <p class="md-5">“Landkit is hands down the most useful front end Bootstrap theme I've ever used. I can't wait to use it again for my next project.”</p>
-                                <span class="text-uppercase">Dave Gamache</span>
+            </div>
+            <div class="row">
+                <div class="border-slider">
+                    <div id="slider" class="col-12">
+                        <div class="row itemSlider">
+                            <div class="col-6" style="padding: 0;">
+                                <img src="./assets/photo-1.jpg" class="img-slide">
+                            </div>
+                            <div class="col-6" style="padding: 0;">
+                                <div class="card-body">
+                                    <img src="./assets/icon12.svg" style="height: 55px;margin-left: auto;margin-right: auto;display: block;margin-bottom: 40px;">
+                                    <p class="md-5">“Landkit is hands down the most useful front end Bootstrap theme I've ever used. I can't wait to use it again for my next project.”</p>
+                                    <span class="text-uppercase">Dave Gamache</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="mySlidesText fade">
-                            <div class="card-body">
-                                <img src="./assets/icon11.svg" style="height: 55px;margin-left: auto;margin-right: auto;display: block;margin-bottom: 40px;">
-                                <p class="md-5">
-                                    “I've never used a theme as versatile and flexible as Landkit. It's my go to for building landing sites on almost any project.”
-                                </p>
-                                <span class="text-uppercase">Russ D'Sa</span>
+                        <div class="row itemSlider">
+                            <div class="col-6" style="padding: 0;">
+                                <img src="./assets/photo-26.jpg" class="img-slide">
+                            </div>
+                            <div class="col-6" style="padding: 0;">
+                                <div class="card-body">
+                                    <img src="./assets/icon11.svg" style="height: 55px;margin-left: auto;margin-right: auto;display: block;margin-bottom: 40px;">
+                                    <p class="md-5">
+                                        “I've never used a theme as versatile and flexible as Landkit. It's my go to for building landing sites on almost any project.”
+                                    </p>
+                                    <span class="text-uppercase">Russ D'Sa</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <button id="preButton" class="prev">&#10094;</button>
+                <button id="nextButton" class="next">&#10095;</button>
             </div>
-            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-            <button class="next" onclick="plusSlides(1)">&#10095;</button>
-        </div>
     </section>
+    <script>
+        var nextBtn = document.getElementById("nextButton");
+        var preBtn = document.getElementById("preButton");
+        var slider = document.getElementById("slider");
+        var widthItem = document.querySelector(".itemSlider").offsetWidth;
+        var numItem = slider.querySelectorAll(".itemSlider").length;
+        var currentPosition = 0;
+        //vi tri slider
+        var widthSlider = numItem * widthItem;
+        //width slider
+        nextBtn.addEventListener("click", nextSlider);
+        preBtn.addEventListener("click", backSlider);
+        const createClone = function genClone() {
+            const numItems = slider.getElementsByClassName("itemSlider").length;
+            const firstChild = slider.getElementsByClassName("itemSlider").item(0); // xác định first slide
+            const lastChild = slider.getElementsByClassName("itemSlider").item(numItems - 1); // xác định last slide
+            const cloneLastChild = lastChild.cloneNode(true); // thực hiện tạo ra 1 last slide mới 
+            const cloneFirstChild = firstChild.cloneNode(true); // thực hiện tạo ra 1 first slide mới 
+            slider.insertBefore(cloneLastChild, firstChild); // thêm last slide vào phía trước slide đầu tiên 
+            slider.insertBefore(cloneFirstChild, lastChild.nextSibling); // thêm first slide vào cuối slider 
+            numItem += 2;
+        }
+        createClone();
+
+        function nextSlider() {
+            widthItem = document.querySelector(".itemSlider").offsetWidth;
+            currentPosition -= widthItem;
+            checkPosition(currentPosition);
+        }
+
+        function backSlider() {
+            widthItem = document.querySelector(".itemSlider").offsetWidth;
+            currentPosition += widthItem;
+            checkPosition(currentPosition);
+        }
+
+        function checkPosition(newValue) {
+            distantSlide = "translate(" + (newValue) + "px)";
+            slider.style.transform = distantSlide;
+            // giá trị mới cho thuộc tính transform của slider
+            //next slider
+            if (currentPosition == -(widthItem * (numItem - 2))) {
+                slider.style.transform = "translateX(" + currentPosition + "px)";
+                setTimeout(function() {
+                    slider.style.transition = "0s";
+                    currentPosition = 0;
+                    slider.style.transform = "translateX(" + currentPosition + "px)";
+                }, 400);
+            } else {
+                slider.style.transition = "0.5s";
+            }
+            //pre slider
+            if (currentPosition == widthItem) {
+                console.log(currentPosition)
+                slider.style.transform = "translateX(" + currentPosition + "px)";
+                setTimeout(function() {
+                    slider.style.transition = "0s";
+                    currentPosition = -(widthItem * (numItem - 3));
+                    slider.style.transform = "translateX(" + currentPosition + "px)";
+                }, 400);
+            } else {
+                slider.style.transition = "0.5s";
+            }
+        }
+    </script>
     <section class="bg-gray-200">
         <div class="container pt-md-13">
             <div class="row">
@@ -753,30 +818,30 @@
     </section>
 </body>
 <script>
-    var slideIndex = 1;
-    showSlides(slideIndex);
+    // var slideIndex = 1;
+    // showSlides(slideIndex);
 
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
+    // function plusSlides(n) {
+    //     showSlides(slideIndex += n);
+    // }
 
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var slidesText = document.getElementsByClassName("mySlidesText");
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-            slidesText[i].style.display = "none";
-        }
-        slides[slideIndex - 1].style.display = "block";
-        slidesText[slideIndex - 1].style.display = "block";
-    }
+    // function showSlides(n) {
+    //     var i;
+    //     var slides = document.getElementsByClassName("mySlides");
+    //     var slidesText = document.getElementsByClassName("mySlidesText");
+    //     if (n > slides.length) {
+    //         slideIndex = 1
+    //     }
+    //     if (n < 1) {
+    //         slideIndex = slides.length
+    //     }
+    //     for (i = 0; i < slides.length; i++) {
+    //         slides[i].style.display = "none";
+    //         slidesText[i].style.display = "none";
+    //     }
+    //     slides[slideIndex - 1].style.display = "block";
+    //     slidesText[slideIndex - 1].style.display = "block";
+    // }
 
     var namez = document.getElementById("cardName");
     var labelName = document.getElementById("labelName");
