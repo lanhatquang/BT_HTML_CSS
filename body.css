@@ -315,6 +315,13 @@
     margin-bottom: 1rem;
 }
 
+.labelInput {
+    color: #869ab8;
+    font-size: 18px;
+    position: absolute;
+    transform: translateY(-40px);
+}
+
 input[type=password] {
     width: 100%;
     height: calc(1.6em + 1.625rem + 2px);

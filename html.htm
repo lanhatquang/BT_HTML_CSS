@@ -325,16 +325,19 @@
                         </div>
                         <div class="card-body">
                             <div class="form-label-item">
-                                <input type="text" id="cardName" placeholder="Name">
-                                <label id="labelName" for="cardName" style="color: #869ab8;font-size: 12px;"></label>
+                                <input type="text" id="cardName">
+                                <label id="labelCardName" for="cardName" class="labelInput">Name</label>
+                                <label id="labelName" style="color: #869ab8; font-size: 12px;"></label>
                             </div>
                             <div class="form-label-item">
-                                <input type="email" id="cardEmail" placeholder="Email">
-                                <label id="labelEmail" for="cardEmail" style="color: #869ab8;font-size: 12px;"></label>
+                                <input type="email" id="cardEmail">
+                                <label id="labelCardEmail" for="cardEmail" class="labelInput">Email</label>
+                                <label id="labelEmail" style="color: #869ab8; font-size: 12px;"></label>
                             </div>
                             <div class="form-label-item">
-                                <input type="password" id="cardPassword" placeholder="Password">
-                                <label id="labelPassword" for="cardPassword" style="color: #869ab8;font-size: 12px;"></label>
+                                <input type="password" id="cardPassword">
+                                <label id="labelCardPassword" for="cardPassword" class="labelInput">Password</label>
+                                <label id="labelPassword" style="color: #869ab8; font-size: 12px;"></label>
                             </div>
                             <div class="mt-6">
                                 <button class="btn-success" id="myBtn" onclick="checkSubmit()">
@@ -426,7 +429,7 @@
                             <div class="col-6" style="padding: 0;">
                                 <div class="card-body">
                                     <img src="./assets/icon12.svg" style="height: 55px;margin-left: auto;margin-right: auto;display: block;margin-bottom: 40px;">
-                                    <p class="md-5">“Landkit is hands down the most useful front end Bootstrap theme I've ever used. I can't wait to use it again for my next project.”</p>
+                                    <p class="md-5 ">“Landkit is hands down the most useful front end Bootstrap theme I've ever used. I can't wait to use it again for my next project.”</p>
                                     <span class="text-uppercase">Dave Gamache</span>
                                 </div>
                             </div>
@@ -435,7 +438,7 @@
                             <div class="col-6" style="padding: 0;">
                                 <img src="./assets/photo-26.jpg" class="img-slide">
                             </div>
-                            <div class="col-6" style="padding: 0;">
+                            <div class="col-6 " style="padding: 0;">
                                 <div class="card-body">
                                     <img src="./assets/icon11.svg" style="height: 55px;margin-left: auto;margin-right: auto;display: block;margin-bottom: 40px;">
                                     <p class="md-5">
@@ -521,7 +524,7 @@
                 slider.style.transition = "0.5s";
             }
         }
-        var myVar = setInterval(nextSlider(), 1000);
+        var myVar = setInterval(nextSlider, 3000);
     </script>
     <section class="bg-gray-200">
         <div class="container pt-md-13">
@@ -634,7 +637,7 @@
                                                 </div>
                                                 <p>Speedy build tooling</p>
                                             </div>
-                                            <div class="d-flex" style="margin-bottom: 0;">
+                                            <div class="d-flex " style="margin-bottom: 0;">
                                                 <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
                                                     <i class="fe fe-check"></i>
                                                 </div>
@@ -743,7 +746,7 @@
                         Get Landkit and save your time.
                     </h1>
                     <p class="font-size-lg text-muted mb-md-8">
-                        Stop wasting time trying to do it the "right way" and build a site from scratch. Landkit is faster, easier, and you still have complete control.
+                        Stop wasting time trying to do it the "right way " and build a site from scratch. Landkit is faster, easier, and you still have complete control.
                     </p>
                     <a class="btn btn-success lift">
                       Buy it now <i class="fa fa-arrow-right" style="margin-left: 0.75rem;font-size: 15px;"></i>
@@ -826,37 +829,15 @@
     </section>
 </body>
 <script>
-    // var slideIndex = 1;
-    // showSlides(slideIndex);
-
-    // function plusSlides(n) {
-    //     showSlides(slideIndex += n);
-    // }
-
-    // function showSlides(n) {
-    //     var i;
-    //     var slides = document.getElementsByClassName("mySlides");
-    //     var slidesText = document.getElementsByClassName("mySlidesText");
-    //     if (n > slides.length) {
-    //         slideIndex = 1
-    //     }
-    //     if (n < 1) {
-    //         slideIndex = slides.length
-    //     }
-    //     for (i = 0; i < slides.length; i++) {
-    //         slides[i].style.display = "none";
-    //         slidesText[i].style.display = "none";
-    //     }
-    //     slides[slideIndex - 1].style.display = "block";
-    //     slidesText[slideIndex - 1].style.display = "block";
-    // }
-
     var namez = document.getElementById("cardName");
     var labelName = document.getElementById("labelName");
     var email = document.getElementById("cardEmail");
     var labelEmail = document.getElementById("labelEmail");
     var password = document.getElementById("cardPassword");
     var labelPassword = document.getElementById("labelPassword");
+    var labelCardName = document.getElementById("labelCardName");
+    var labelCardEmail = document.getElementById("labelCardEmail");
+    var labelCardPassword = document.getElementById("labelCardPassword");
 
     namez.addEventListener("keyup", function(event) {
         if (event.keyCode == 13) {
@@ -876,6 +857,38 @@
             document.getElementById("myBtn").click();
         }
     });
+
+    setInterval(formatLabel, 100);
+
+    function formatLabel() {
+        if (namez.value != "") {
+            labelCardName.style.transition = "0.3s";
+            labelCardName.style.fontSize = "12px"
+            labelCardName.style.transform = "translateY(" + -60 + "px)";
+        } else {
+            labelCardName.style.transition = "0.3s";
+            labelCardName.style.fontSize = "18px"
+            labelCardName.style.transform = "translateY(" + -40 + "px)";
+        }
+        if (email.value.length != 0) {
+            labelCardEmail.style.transition = "0.3s";
+            labelCardEmail.style.fontSize = "12px"
+            labelCardEmail.style.transform = "translateY(" + -60 + "px)";
+        } else {
+            labelCardEmail.style.transition = "0.3s";
+            labelCardEmail.style.fontSize = "18px"
+            labelCardEmail.style.transform = "translateY(" + -40 + "px)";
+        }
+        if (password.value.length != 0) {
+            labelCardPassword.style.transition = "0.3s";
+            labelCardPassword.style.fontSize = "12px"
+            labelCardPassword.style.transform = "translateY(" + -60 + "px)";
+        } else {
+            labelCardPassword.style.transition = "0.3s";
+            labelCardPassword.style.fontSize = "18px"
+            labelCardPassword.style.transform = "translateY(" + -40 + "px)";
+        }
+    }
 
     function checkSubmit() {
         var check = 1;
