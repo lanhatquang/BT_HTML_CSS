@@ -352,7 +352,53 @@
                         The most useful resource
                         <br>
                         <span style="color: #42ba96!important;">ever created for </span>
+                        <span id="spanAni" style="color: #42ba96!important;"></span>
+                        <span id="controlAni" style="color: #42ba96; opacity: 1;">|</span>
                     </h2>
+                    <script>
+                        var spanAni = document.getElementById("spanAni");
+                        var controlAni = document.getElementById("controlAni");
+                        var list = ["developers.", "designers.", "founders."];
+
+                        function sleep(ms) {
+                            return new Promise(
+                                resolve => setTimeout(resolve, ms)
+                            );
+                        }
+                        async function TextAni() {
+                            while (true) {
+                                for (let i = 0; i < 3; i++) {
+                                    for (let index = -1; index < list[i].length; index++) {
+                                        if (index == -1) {
+                                            spanAni.innerHTML = "";
+                                            await sleep(50);
+                                        } else {
+                                            spanAni.innerHTML = list[i].substr(0, index + 1);
+                                            await sleep(50);
+                                        }
+                                    }
+                                    for (let index = 0; index < 2; index++) {
+                                        controlAni.style.transition = "0.2s"
+                                        controlAni.style.opacity = "0";
+                                        await sleep(300);
+                                        controlAni.style.transition = "0.2s"
+                                        controlAni.style.opacity = "1";
+                                        await sleep(300);
+                                    }
+                                    for (let index = list[i].length; index >= 0; index--) {
+                                        if (index == 0) {
+                                            spanAni.innerHTML = "";
+                                            await sleep(50);
+                                        } else {
+                                            spanAni.innerHTML = list[i].substr(0, index);
+                                            await sleep(50);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        TextAni();
+                    </script>
                     <p class="display-7" style="font-size: 19px;margin-bottom: 32px; line-height: 1.5;">Using Landkit to build your site means never worrying about designing another page or cross browser compatibility. Our ever-growing library of components and pre-designed layouts will make your life easier.</p>
                     <div class="row">
                         <div class="col-6">
