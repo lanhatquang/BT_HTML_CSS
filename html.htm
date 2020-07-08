@@ -511,25 +511,29 @@
             </div>
     </section>
     <script>
-        var nextBtn = document.getElementById("nextButton");
-        var preBtn = document.getElementById("preButton");
+        // var nextBtn = document.getElementById("nextButton");
+        // var preBtn = document.getElementById("preButton");
         var slider = document.getElementById("slider");
         var widthItem = document.querySelector(".itemSlider").offsetWidth;
-        var numItem = slider.querySelectorAll(".itemSlider").length;
+        // var numItem = slider.querySelectorAll(".itemSlider").length;
+        var numItem = $(".itemSlider").length;
         //vi tri slider
         var currentPosition = 0;
         //width slider
         var widthSlider = numItem * widthItem;
-        nextBtn.addEventListener("click", nextSlider);
-        preBtn.addEventListener("click", backSlider);
         const createClone = function genClone() {
-            const numItems = slider.getElementsByClassName("itemSlider").length;
-            const firstChild = slider.getElementsByClassName("itemSlider").item(0); // xác định first slide
-            const lastChild = slider.getElementsByClassName("itemSlider").item(numItems - 1); // xác định last slide
+            // const numItems = slider.getElementsByClassName("itemSlider").length;
+            const numItems = $(".itemSlider").length;
+            // const firstChild = slider.getElementsByClassName("itemSlider").item(0); // xác định first slide
+            const firstChild = $(".itemSlider")[0];
+            // const lastChild = slider.getElementsByClassName("itemSlider").item(numItems - 1); // xác định last slide
+            const lastChild = $(".itemSlider")[numItems - 1];
             const cloneLastChild = lastChild.cloneNode(true); // thực hiện tạo ra 1 last slide mới 
             const cloneFirstChild = firstChild.cloneNode(true); // thực hiện tạo ra 1 first slide mới 
-            slider.insertBefore(cloneLastChild, firstChild); // thêm last slide vào phía trước slide đầu tiên 
-            slider.insertBefore(cloneFirstChild, lastChild.nextSibling); // thêm first slide vào cuối slider 
+            // slider.insertBefore(cloneLastChild, firstChild); // thêm last slide vào phía trước slide đầu tiên 
+            $(cloneLastChild).insertBefore(firstChild);
+            // slider.insertBefore(cloneFirstChild, lastChild.nextSibling); // thêm first slide vào cuối slider 
+            $(cloneFirstChild).insertAfter(lastChild);
             numItem += 2;
         }
         createClone();
@@ -540,6 +544,18 @@
                 slider.style.transform = "translateX(" + currentPosition + "px)";
             });
         });
+        // nextBtn.addEventListener("click", nextSlider);
+        $("#nextButton").click(() => {
+            widthItem = document.querySelector(".itemSlider").offsetWidth;
+            currentPosition -= widthItem;
+            checkPosition(currentPosition);
+        });
+        // preBtn.addEventListener("click", backSlider);
+        $("#preButton").click(() => {
+            widthItem = document.querySelector(".itemSlider").offsetWidth;
+            currentPosition += widthItem;
+            checkPosition(currentPosition);
+        });
 
         function nextSlider() {
             widthItem = document.querySelector(".itemSlider").offsetWidth;
@@ -547,18 +563,35 @@
             checkPosition(currentPosition);
         }
 
-        function backSlider() {
-            widthItem = document.querySelector(".itemSlider").offsetWidth;
-            currentPosition += widthItem;
-            checkPosition(currentPosition);
-        }
+        // function backSlider() {
+        //     widthItem = document.querySelector(".itemSlider").offsetWidth;
+        //     currentPosition += widthItem;
+        //     checkPosition(currentPosition);
+        // }
+        var timer = setInterval(nextSlider, 3000);
+        //stop auto next slider
+        $(".border-slider").hover(function(ev) {
+            clearInterval(timer);
+        }, function(ev) {
+            timer = setInterval(nextSlider, 3000);
+        });
+        $(".next").hover(function(ev) {
+            clearInterval(timer);
+        }, function(ev) {
+            timer = setInterval(nextSlider, 3000);
+        });
+        $(".prev").hover(function(ev) {
+            clearInterval(timer);
+        }, function(ev) {
+            timer = setInterval(nextSlider, 3000);
+        });
 
         function checkPosition(newValue) {
             distantSlide = "translate(" + (newValue) + "px)";
             // giá trị mới cho thuộc tính transform của slider
             slider.style.transform = distantSlide;
             //next slider
-            if (currentPosition == -(widthItem * (numItem - 2))) {
+            if (currentPosition === -(widthItem * (numItem - 2))) {
                 slider.style.transform = "translateX(" + currentPosition + "px)";
                 setTimeout(function() {
                     slider.style.transition = "0s";
@@ -569,7 +602,7 @@
                 slider.style.transition = "0.5s";
             }
             //pre slider
-            if (currentPosition == widthItem) {
+            if (currentPosition === widthItem) {
                 slider.style.transform = "translateX(" + currentPosition + "px)";
                 setTimeout(function() {
                     slider.style.transition = "0s";
@@ -580,7 +613,6 @@
                 slider.style.transition = "0.5s";
             }
         }
-        setInterval(nextSlider, 3000);
     </script>
     <section class="bg-gray-200">
         <div class="container pt-md-13">
@@ -733,10 +765,9 @@
         var checkbox = document.getElementById("checkbox");
         var spanChange = document.getElementById("spanChange");
         checkbox.addEventListener("click", changeNumber);
-        var bool = true;
 
         async function changeNumber() {
-            if (bool) {
+            if (checkbox.checked) {
                 for (let index = 30; index < 50; index++) {
                     spanChange.innerHTML = "" + index;
                     await sleep(20);
@@ -747,7 +778,6 @@
                     await sleep(20);
                 }
             }
-            bool = !bool;
         }
     </script>
     <section class="bg-dark">
@@ -972,13 +1002,13 @@
     $("#formSubmit").on('submit', function(e) {
         e.preventDefault();
         let check = 1;
-        if (namez.value == "") {
+        if (namez.value === "") {
             labelName.innerHTML = "Name is empty";
             check = 0;
         } else {
             labelName.innerHTML = "";
         }
-        if (email.value == "") {
+        if (email.value === "") {
             labelEmail.innerHTML = "Email is empty";
             check = 0;
         } else if (!validateEmail.test(email.value)) {
@@ -987,7 +1017,7 @@
         } else {
             labelEmail.innerHTML = "";
         }
-        if (password.value == "") {
+        if (password.value === "") {
             labelPassword.innerHTML = "Email is empty";
             check = 0;
         } else if (password.value.length < 8) {
@@ -996,7 +1026,7 @@
         } else {
             labelPassword.innerHTML = "";
         }
-        if (check == 1) {
+        if (check === 1) {
             console.log("name: " + namez.value);
             console.log("email: " + email.value);
             console.log("password: " + password.value);
@@ -1047,7 +1077,7 @@
 
     function showList(numberShow) {
         if ($(window).width() < 992) {
-            if (checkShow[numberShow - 1] == 0) {
+            if (checkShow[numberShow - 1] === 0) {
                 removeList();
                 document.getElementById("dropdown-link-" + numberShow).classList.add("show");
                 document.getElementById("icon-" + numberShow).innerHTML = "&#10094;";
@@ -1061,13 +1091,14 @@
     }
 
     function showHeader(check) {
+        let showHeader = document.getElementById("showHeader");
         if (check) {
-            document.getElementById("showHeader").classList.add("show");
-            document.getElementById("showHeader").classList.add("collapseShow");
+            showHeader.classList.add("show");
+            showHeader.classList.add("collapseShow");
             document.getElementById("container").classList.add("showList");
         } else {
-            document.getElementById("showHeader").classList.remove("show");
-            document.getElementById("showHeader").classList.remove("collapseShow");
+            showHeader.classList.remove("show");
+            showHeader.classList.remove("collapseShow");
             document.getElementById("container").classList.remove("showList");
             for (let index = 0; index < checkShow.length; index++) {
                 document.getElementById("dropdown-link-" + (index + 1)).classList.remove("show");
