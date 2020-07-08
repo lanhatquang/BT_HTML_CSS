@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="header.css">
     <link rel="stylesheet" type="text/css" href="body.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
@@ -378,10 +379,10 @@
                                         }
                                     }
                                     for (let index = 0; index < 2; index++) {
-                                        controlAni.style.transition = "0.2s"
+                                        controlAni.style.transition = "0.3s"
                                         controlAni.style.opacity = "0";
                                         await sleep(300);
-                                        controlAni.style.transition = "0.2s"
+                                        controlAni.style.transition = "0.3s"
                                         controlAni.style.opacity = "1";
                                         await sleep(300);
                                     }
@@ -401,16 +402,25 @@
                     </script>
                     <p class="display-7" style="font-size: 19px;margin-bottom: 32px; line-height: 1.5;">Using Landkit to build your site means never worrying about designing another page or cross browser compatibility. Our ever-growing library of components and pre-designed layouts will make your life easier.</p>
                     <div class="row">
-                        <div class="col-6">
-                            <div>
-                                <i class="fe"></i>
+                        <div class="col-6" style="padding: 0;">
+                            <div style="display: flex;">
+                                <i class="material-icons icon-done">done</i>
                                 <p class="text-success">Lifetime updates</p>
                             </div>
-                            <p class="text-success text-mg">Tons of assets</p>
+                            <div style="display: flex;">
+                                <i class="material-icons icon-done">done</i>
+                                <p class="text-success text-mg">Tons of assets</p>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <p class="text-success">Tech support</p>
-                            <p class="text-success" style="margin-bottom: 0px;">Integration ready</p>
+                        <div class="col-6" style="padding: 0;">
+                            <div style="display: flex;">
+                                <i class="material-icons icon-done">done</i>
+                                <p class="text-success">Tech support</p>
+                            </div>
+                            <div style="display: flex;">
+                                <i class="material-icons icon-done">done</i>
+                                <p class="text-success text-mg">Integration ready</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -631,7 +641,7 @@
                     <form class="d-flex justify-content-center">
                         <span class="text-muted">Annual</span>
                         <label class="switch">
-                        <input type="checkbox">
+                        <input type="checkbox" id="checkbox">
                         <span class="slider round"></span>
                     </label>
                         <span class="text-muted">Monthly</span>
@@ -653,41 +663,41 @@
                                             </div>
                                             <div class="d-flex justify-content-center" style="margin-bottom: 0;">
                                                 <span class="h2 mb-0 mt-2" style="font-size: 31px; color: #161C2D;">$</span>
-                                                <span class="display-2 mb-0" style="font-size: 61px; color: #161C2D;">29</span>
+                                                <span id="spanChange" class="display-2 mb-0" style="font-size: 61px; color: #161C2D;">29</span>
                                                 <span class="h2 align-self-end mb-1" style="color: #161C2D; font-size: 31px; margin-bottom: 4px;">/mo</span>
                                             </div>
                                             <p class="text-center text-muted mb-md-8">
                                                 per seat
                                             </p>
                                             <div class="d-flex">
-                                                <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                                                    <i class="fe fe-check"></i>
+                                                <div style="display: flex;">
+                                                    <i class="material-icons icon-done">done</i>
+                                                    <p>Rich, responsive landing pages</p>
                                                 </div>
-                                                <p>Rich, responsive landing pages</p>
                                             </div>
                                             <div class="d-flex">
-                                                <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                                                    <i class="fe fe-check"></i>
+                                                <div style="display: flex;">
+                                                    <i class="material-icons icon-done">done</i>
+                                                    <p>100+ styled components</p>
                                                 </div>
-                                                <p>100+ styled components</p>
                                             </div>
                                             <div class="d-flex">
-                                                <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                                                    <i class="fe fe-check"></i>
+                                                <div style="display: flex;">
+                                                    <i class="material-icons icon-done">done</i>
+                                                    <p>Flexible, simple license</p>
                                                 </div>
-                                                <p>Flexible, simple license</p>
                                             </div>
                                             <div class="d-flex">
-                                                <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                                                    <i class="fe fe-check"></i>
+                                                <div style="display: flex;">
+                                                    <i class="material-icons icon-done">done</i>
+                                                    <p>Speedy build tooling</p>
                                                 </div>
-                                                <p>Speedy build tooling</p>
                                             </div>
                                             <div class="d-flex " style="margin-bottom: 0;">
-                                                <div class="badge badge-rounded-circle badge-success-soft mt-1 mr-4">
-                                                    <i class="fe fe-check"></i>
+                                                <div style="display: flex;">
+                                                    <i class="material-icons icon-done">done</i>
+                                                    <p>6 months free support included</p>
                                                 </div>
-                                                <p>6 months free support included</p>
                                             </div>
                                         </div>
                                     </div>
@@ -719,6 +729,27 @@
             </div>
         </div>
     </section>
+    <script>
+        var checkbox = document.getElementById("checkbox");
+        var spanChange = document.getElementById("spanChange");
+        checkbox.addEventListener("click", changeNumber);
+        var bool = true;
+
+        async function changeNumber() {
+            if (bool) {
+                for (let index = 30; index < 50; index++) {
+                    spanChange.innerHTML = "" + index;
+                    await sleep(20);
+                }
+            } else {
+                for (let index = 48; index > 28; index--) {
+                    spanChange.innerHTML = "" + index;
+                    await sleep(20);
+                }
+            }
+            bool = !bool;
+        }
+    </script>
     <section class="bg-dark">
         <div class="container pt-md-10">
             <div class="row" style="align-items: initial;">
@@ -970,9 +1001,18 @@
     }
     var checkShow = [0, 0, 0, 0, 0];
 
+    function removeList() {
+        for (let index = 0; index < checkShow.length; index++) {
+            checkShow[index] = 0;
+            document.getElementById("dropdown-link-" + (index + 1)).classList.remove("show");
+            document.getElementById("icon-" + (index + 1)).innerHTML = "&#10095;";
+        }
+    }
+
     function showList(numberShow) {
         if ($(window).width() < 992) {
             if (checkShow[numberShow - 1] == 0) {
+                removeList();
                 document.getElementById("dropdown-link-" + numberShow).classList.add("show");
                 document.getElementById("icon-" + numberShow).innerHTML = "&#10094;";
                 checkShow[numberShow - 1] = 1;

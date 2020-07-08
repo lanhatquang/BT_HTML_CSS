@@ -45,7 +45,7 @@ body {
     -webkit-box-pack: justify;
     justify-content: space-between;
     position: relative;
-    width: 100%;
+    width: 100vw;
     margin-left: auto;
     margin-right: auto;
     max-width: 960px;
@@ -617,17 +617,21 @@ p {
         border-radius: 5px;
         width: 100%;
         top: 0;
-        left: 2.5vw;
-        height: 95vh;
-        width: 95vw;
+        left: 97.5vw;
+        height: 0;
+        width: 0;
         z-index: 100;
         overflow-x: hidden;
+        transition: all 0.2s;
         overflow-y: scroll;
     }
     .collapseShow {
         opacity: 1;
         visibility: visible;
-        transition: all 0.5s;
+        transition: all 0.2s;
+        height: 95vh;
+        width: 95vw;
+        left: 2.5vw;
     }
     .navbar-toggler {
         display: block;
@@ -718,6 +722,6 @@ p {
     .showList {
         width: 100vw;
         margin: 0!important;
-        padding-left: 12vw;
+        padding-left: 10vw;
     }
 }

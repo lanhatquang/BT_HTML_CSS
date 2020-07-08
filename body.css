@@ -396,7 +396,7 @@ input[type=email]:focus {
     background-color: #42BA96;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    display: inline-block;
+    display: inline;
     transform: translateY(0px);
     transition: all 0.25s;
     width: 100%;
@@ -418,6 +418,16 @@ input[type=email]:focus {
     margin-bottom: 16px;
     font-size: 17px;
     font-family: 'Roboto', sans-serif;
+}
+
+.icon-done {
+    color: #42BA96;
+    margin: 0 16px 0 0;
+    padding: 4px;
+    font-size: 12.75px!important;
+    height: calc(1em + .5rem);
+    border-radius: 10rem;
+    background-color: rgba(66, 186, 150, .1);
 }
 
 .footer-ma {
@@ -596,7 +606,7 @@ input:checked+.slider:before {
     overflow: hidden;
     position: absolute;
     transition: 0.6s;
-    left: -920px;
+    left: -940px;
 }
 
 .border-slider {
@@ -604,6 +614,7 @@ input:checked+.slider:before {
     height: 395.3px;
     overflow: hidden;
     position: relative;
+    transform: translateX(20px);
 }
 
 @media (max-width: 992px) {
@@ -625,7 +636,7 @@ input:checked+.slider:before {
         overflow: hidden;
         position: absolute;
         transition: 0.6s;
-        left: -700px;
+        left: -720px;
     }
     .border-slider {
         width: 700px;
@@ -658,7 +669,6 @@ input:checked+.slider:before {
         height: 714px;
         overflow: hidden;
         position: relative;
-        transform: translateX(20px);
     }
 }
 
@@ -850,9 +860,6 @@ h3 {
     }
     .col-8 {
         width: 100%;
-    }
-    .text-success {
-        margin-top: 16px;
     }
     [class^="col-"]>img {
         max-width: 100%;
