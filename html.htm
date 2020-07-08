@@ -324,7 +324,7 @@
                         <div style="position: absolute;z-index: 1000;display: block;width: 100%; overflow: hidden;">
                             <svg style="color: black; transform: translate(-28%,-10px);left: 50%;z-index: 1000;" height="20px" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"></path></svg>
                         </div>
-                        <div class="card-body">
+                        <form id="formSubmit" class="card-body">
                             <div class="form-label-item">
                                 <input type="text" id="cardName">
                                 <label id="labelCardName" for="cardName" class="labelInput">Name</label>
@@ -341,11 +341,11 @@
                                 <label id="labelPassword" style="color: #869ab8; font-size: 12px;"></label>
                             </div>
                             <div class="mt-6">
-                                <button class="btn-success" id="myBtn" onclick="checkSubmit()">
+                                <button class="btn-success" id="myBtn" type="submit">
                                     Download a sample
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-6" style="margin-left: auto;">
@@ -516,10 +516,10 @@
         var slider = document.getElementById("slider");
         var widthItem = document.querySelector(".itemSlider").offsetWidth;
         var numItem = slider.querySelectorAll(".itemSlider").length;
-        var currentPosition = 0;
         //vi tri slider
-        var widthSlider = numItem * widthItem;
+        var currentPosition = 0;
         //width slider
+        var widthSlider = numItem * widthItem;
         nextBtn.addEventListener("click", nextSlider);
         preBtn.addEventListener("click", backSlider);
         const createClone = function genClone() {
@@ -555,8 +555,8 @@
 
         function checkPosition(newValue) {
             distantSlide = "translate(" + (newValue) + "px)";
-            slider.style.transform = distantSlide;
             // giá trị mới cho thuộc tính transform của slider
+            slider.style.transform = distantSlide;
             //next slider
             if (currentPosition == -(widthItem * (numItem - 2))) {
                 slider.style.transform = "translateX(" + currentPosition + "px)";
@@ -580,7 +580,7 @@
                 slider.style.transition = "0.5s";
             }
         }
-        var myVar = setInterval(nextSlider, 3000);
+        setInterval(nextSlider, 3000);
     </script>
     <section class="bg-gray-200">
         <div class="container pt-md-13">
@@ -916,59 +916,62 @@
     var labelCardEmail = document.getElementById("labelCardEmail");
     var labelCardPassword = document.getElementById("labelCardPassword");
 
-    namez.addEventListener("keyup", function(event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-            document.getElementById("myBtn").click();
-        }
-    });
-    email.addEventListener("keyup", function(event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-            document.getElementById("myBtn").click();
-        }
-    });
-    password.addEventListener("keyup", function(event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-            document.getElementById("myBtn").click();
-        }
-    });
+    // namez.addEventListener("keyup", function(event) {
+    //     if (event.keyCode == 13) {
+    //         event.preventDefault();
+    //         document.getElementById("myBtn").click();
+    //     }
+    // });
+    // email.addEventListener("keyup", function(event) {
+    //     if (event.keyCode == 13) {
+    //         event.preventDefault();
+    //         document.getElementById("myBtn").click();
+    //     }
+    // });
+    // password.addEventListener("keyup", function(event) {
+    //     if (event.keyCode == 13) {
+    //         event.preventDefault();
+    //         document.getElementById("myBtn").click();
+    //     }
+    // });
 
     setInterval(formatLabel, 100);
 
     function formatLabel() {
         if (namez.value != "") {
-            labelCardName.style.transition = "0.3s";
+            labelCardName.style.transition = "0.2s";
             labelCardName.style.fontSize = "12px"
             labelCardName.style.transform = "translateY(" + -60 + "px)";
         } else {
-            labelCardName.style.transition = "0.3s";
+            labelCardName.style.transition = "0.2s";
             labelCardName.style.fontSize = "18px"
             labelCardName.style.transform = "translateY(" + -40 + "px)";
         }
         if (email.value.length != 0) {
-            labelCardEmail.style.transition = "0.3s";
+            labelCardEmail.style.transition = "0.2s";
             labelCardEmail.style.fontSize = "12px"
             labelCardEmail.style.transform = "translateY(" + -60 + "px)";
         } else {
-            labelCardEmail.style.transition = "0.3s";
+            labelCardEmail.style.transition = "0.2s";
             labelCardEmail.style.fontSize = "18px"
             labelCardEmail.style.transform = "translateY(" + -40 + "px)";
         }
         if (password.value.length != 0) {
-            labelCardPassword.style.transition = "0.3s";
+            labelCardPassword.style.transition = "0.2s";
             labelCardPassword.style.fontSize = "12px"
             labelCardPassword.style.transform = "translateY(" + -60 + "px)";
         } else {
-            labelCardPassword.style.transition = "0.3s";
+            labelCardPassword.style.transition = "0.2s";
             labelCardPassword.style.fontSize = "18px"
             labelCardPassword.style.transform = "translateY(" + -40 + "px)";
         }
     }
 
-    function checkSubmit() {
-        var check = 1;
+    var validateEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+    $("#formSubmit").on('submit', function(e) {
+        e.preventDefault();
+        let check = 1;
         if (namez.value == "") {
             labelName.innerHTML = "Name is empty";
             check = 0;
@@ -978,8 +981,8 @@
         if (email.value == "") {
             labelEmail.innerHTML = "Email is empty";
             check = 0;
-        } else if (email.value.length > 8) {
-            labelEmail.innerHTML = "Length email is long"
+        } else if (!validateEmail.test(email.value)) {
+            labelEmail.innerHTML = "Not email"
             check = 0;
         } else {
             labelEmail.innerHTML = "";
@@ -987,8 +990,8 @@
         if (password.value == "") {
             labelPassword.innerHTML = "Email is empty";
             check = 0;
-        } else if (password.value.length > 8) {
-            labelPassword.innerHTML = "Length password is long"
+        } else if (password.value.length < 8) {
+            labelPassword.innerHTML = "Length password is short"
             check = 0;
         } else {
             labelPassword.innerHTML = "";
@@ -998,7 +1001,40 @@
             console.log("email: " + email.value);
             console.log("password: " + password.value);
         }
-    }
+    });
+
+    // function checkSubmit() {
+    //     let check = 1;
+    //     if (namez.value == "") {
+    //         labelName.innerHTML = "Name is empty";
+    //         check = 0;
+    //     } else {
+    //         labelName.innerHTML = "";
+    //     }
+    //     if (email.value == "") {
+    //         labelEmail.innerHTML = "Email is empty";
+    //         check = 0;
+    //     } else if (!validateEmail.test(email.value)) {
+    //         labelEmail.innerHTML = "Not email"
+    //         check = 0;
+    //     } else {
+    //         labelEmail.innerHTML = "";
+    //     }
+    //     if (password.value == "") {
+    //         labelPassword.innerHTML = "Email is empty";
+    //         check = 0;
+    //     } else if (password.value.length < 8) {
+    //         labelPassword.innerHTML = "Length password is short"
+    //         check = 0;
+    //     } else {
+    //         labelPassword.innerHTML = "";
+    //     }
+    //     if (check == 1) {
+    //         console.log("name: " + namez.value);
+    //         console.log("email: " + email.value);
+    //         console.log("password: " + password.value);
+    //     }
+    // }
     var checkShow = [0, 0, 0, 0, 0];
 
     function removeList() {
