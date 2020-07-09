@@ -138,12 +138,12 @@
                         <a class="navbar-item">Account</a>
                         <ul id="dropdown-list-item" class="dropdown-menu" style="min-width: 14rem;">
                             <li class="dropdown-item dropright" style="margin-top: 0;">
-                                <a class="dropdown-toggle list-1">
+                                <a class="dropdown-toggle">
                                     Settings 
                                     <span class="h6 text-uppercase text-primary">(new)</span>
-                                    <p id="icon-1" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
+                                    <p class="icon-list" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
-                                <div id="dropdown-link-1" class="dropdown-menu">
+                                <div class="dropdown-menu dropdown-link">
                                     <a class="dropdown-item">General</a>
                                     <a class="dropdown-item">Security</a>
                                     <a class="dropdown-item">Notifications</a>
@@ -152,11 +152,11 @@
                                 </div>
                             </li>
                             <li class="dropdown-item dropright">
-                                <a class="dropdown-toggle list-2">
+                                <a class="dropdown-toggle">
                                     Sign In
-                                    <p id="icon-2" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
+                                    <p class="icon-list" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
-                                <div id="dropdown-link-2" class="dropdown-menu">
+                                <div class="dropdown-menu dropdown-link">
                                     <a class="dropdown-item">Side Cover</a>
                                     <a class="dropdown-item">Illustration</a>
                                     <a class="dropdown-item">Basic</a>
@@ -165,11 +165,11 @@
                                 </div>
                             </li>
                             <li class="dropdown-item dropright">
-                                <a class="dropdown-toggle list-3">
+                                <a class="dropdown-toggle">
                                     Sign Up
-                                    <p id="icon-3" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
+                                    <p class="icon-list" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
-                                <div id="dropdown-link-3" class="dropdown-menu">
+                                <div class="dropdown-menu dropdown-link">
                                     <a class="dropdown-item">Side Cover</a>
                                     <a class="dropdown-item">Illustration</a>
                                     <a class="dropdown-item">Basic</a>
@@ -178,22 +178,22 @@
                                 </div>
                             </li>
                             <li class="dropdown-item dropright">
-                                <a class="dropdown-toggle list-4">
+                                <a class="dropdown-toggle">
                                     Password Reset
-                                    <p id="icon-4" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
+                                    <p class="icon-list" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
-                                <div id="dropdown-link-4" class="dropdown-menu">
+                                <div class="dropdown-menu dropdown-link">
                                     <a class="dropdown-item">Side Cover</a>
                                     <a class="dropdown-item">Illustration</a>
                                     <a class="dropdown-item">Basic</a>
                                 </div>
                             </li>
                             <li class="dropdown-item dropright">
-                                <a class="dropdown-toggle list-5">
+                                <a class="dropdown-toggle">
                                     Error
-                                    <p id="icon-5" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
+                                    <p class="icon-list" style="display: inline-block;margin-bottom: 0;font-size: 12px; position: absolute; right: 28px;">&#10095;</p>
                                 </a>
-                                <div id="dropdown-link-5" class="dropdown-menu">
+                                <div class="dropdown-menu dropdown-link">
                                     <a class="dropdown-item">Side Cover</a>
                                     <a class="dropdown-item">Illustration</a>
                                     <a class="dropdown-item">Basic</a>
@@ -860,28 +860,11 @@
         }
     });
     //show list dropdown item
-    let checkShow = [0, 0, 0, 0, 0];
 
-    for (let index = 1; index < $(".dropdown-toggle").length + 1; index++) {
-        $(".list-" + index).on("click", function() {
-            if ($(window).width() < 992) {
-                if (checkShow[index - 1] === 0) {
-                    for (let i = 0; i < checkShow.length; i++) {
-                        checkShow[i] = 0;
-                        $("#dropdown-link-" + (i + 1)).removeClass("show");
-                        $("#icon-" + (i + 1)).html("&#10095;");
-                    }
-                    $("#dropdown-link-" + index).addClass("show");
-                    $("#icon-" + index).html("&#10094;");
-                    checkShow[index - 1] = 1;
-                } else {
-                    $("#dropdown-link-" + index).removeClass("show");
-                    $("#icon-" + index).html("&#10095;");
-                    checkShow[index - 1] = 0;
-                }
-            }
-        });
-    }
+    $(".dropright").click(function() {
+        $(".dropdown-link").not($(this).find(".dropdown-link")).removeClass("show");
+        $(this).find(".dropdown-link").toggleClass("show");
+    });
 
     // show/unshow header
     $(".navbar-toggler-icon").click(function() {
@@ -901,11 +884,7 @@
             showHeader.removeClass("show");
             showHeader.removeClass("collapseShow");
             $("#container").removeClass("showList");
-            for (let index = 0; index < checkShow.length; index++) {
-                $("#dropdown-link-" + (index + 1)).removeClass("show");
-                $("#icon-" + (index + 1)).html("&#10095;");
-                checkShow[index] = 0;
-            }
+            $(".dropdown-link").removeClass("show");
         }
     }
     //text animation
