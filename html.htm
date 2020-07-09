@@ -903,7 +903,7 @@
             $("#container").removeClass("showList");
             for (let index = 0; index < checkShow.length; index++) {
                 $("#dropdown-link-" + (index + 1)).removeClass("show");
-                $("#icon-" + (index + 1)).text("&#10095;");
+                $("#icon-" + (index + 1)).html("&#10095;");
                 checkShow[index] = 0;
             }
         }
@@ -955,23 +955,20 @@
         }
     });
     //change number
-    var checkbox = $("#checkbox");
-    var spanChange = $("#spanChange");
-    checkbox.on("click", changeNumber);
-
-    async function changeNumber() {
-        if (checkbox.is(":checked")) {
+    $("#checkbox").on("click", async function() {
+        if ($("#checkbox").is(":checked")) {
             for (let index = 30; index < 50; index++) {
-                spanChange.text(index);
+                $("#spanChange").text(index);
                 await sleep(20);
             }
         } else {
             for (let index = 48; index > 28; index--) {
-                spanChange.text(index);
+                $("#spanChange").text(index);
                 await sleep(20);
             }
         }
-    }
+    });
+
     //slider auto
     let slider = $("#slider");
     let widthItem = $(".itemSlider:first-child").width();
