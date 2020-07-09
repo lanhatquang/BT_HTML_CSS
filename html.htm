@@ -331,7 +331,7 @@
                                 <label id="labelName" style="color: #869ab8; font-size: 12px;"></label>
                             </div>
                             <div class="form-label-item">
-                                <input type="email" id="cardEmail">
+                                <input type="text" id="cardEmail">
                                 <label id="labelCardEmail" for="cardEmail" class="labelInput">Email</label>
                                 <label id="labelEmail" style="color: #869ab8; font-size: 12px;"></label>
                             </div>
@@ -854,9 +854,9 @@
             labelPassword.text("");
         }
         if (check) {
-            console.log("name: " + namez.value);
-            console.log("email: " + email.value);
-            console.log("password: " + password.value);
+            console.log("name: " + namez.val());
+            console.log("email: " + email.val());
+            console.log("password: " + password.val());
         }
     });
     //show list dropdown item
