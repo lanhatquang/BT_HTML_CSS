@@ -862,8 +862,10 @@
     //show list dropdown item
 
     $(".dropright").click(function() {
-        $(".dropdown-link").not($(this).find(".dropdown-link")).removeClass("show");
-        $(this).find(".dropdown-link").toggleClass("show");
+        if ($(window).width() <= 992) {
+            $(".dropdown-link").not($(this).find(".dropdown-link")).removeClass("show");
+            $(this).find(".dropdown-link").toggleClass("show");
+        }
     });
 
     // show/unshow header
