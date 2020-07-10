@@ -862,7 +862,7 @@
     //show list dropdown item
 
     $(".dropright").click(function() {
-        if ($(window).width() <= 992) {
+        if ($(window).width() < 992) {
             $(".dropdown-link").not($(this).find(".dropdown-link")).removeClass("show");
             $(this).find(".dropdown-link").toggleClass("show");
         }
